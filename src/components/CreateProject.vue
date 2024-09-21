@@ -1,43 +1,43 @@
 <template>
-    <v-form v-model="valid">
-        <v-row justify="center">
-            <v-col cols="10">
-                <v-text-field
-                v-model="firstname"
-                :counter="10"
-                :rules="nameRules"
-                label="Project name"
-                hide-details
-                required
-                ></v-text-field>
-            </v-col>
-        </v-row>
+    <v-row justify="center">
+        <v-col cols="9">
+            <h2>Create A New Project</h2>
+            <div class="py-2" />
+            <v-form v-model="valid">
+                <v-row>
+                    <v-col>
+                        <v-text-field
+                        v-model="firstname"
+                        :counter="10"
+                        :rules="nameRules"
+                        label="Project name"
+                        hide-details
+                        required
+                        ></v-text-field>
+                    </v-col>
+                </v-row>
 
-        <v-row justify="center">
-            <v-col cols="10">
-                <v-text-field
-                    v-model="lastname"
-                    :counter="10"
-                    :rules="nameRules"
-                    label="Last name"
-                    hide-details
-                    required
-                ></v-text-field>
-            </v-col>
-        </v-row>
-        
-        <v-row justify="center">
-            <v-col cols="10">
-                <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="E-mail"
-                    hide-details
-                    required
-                ></v-text-field>
-            </v-col>
-        </v-row>
-    </v-form>
+                <v-row>
+                    <v-col>
+                        <v-textarea
+                            v-model="lastname"
+                            :counter="10"
+                            :rules="nameRules"
+                            label="Project Description"
+                            hide-details
+                            required
+                        ></v-textarea>
+                    </v-col>
+                </v-row>
+
+                <v-row justify="center">
+                    <v-col cols="6">
+                        <v-btn type="submit" block>create project</v-btn>
+                    </v-col>
+                </v-row>
+            </v-form>
+        </v-col>
+    </v-row>
 </template>
 
 <script>
