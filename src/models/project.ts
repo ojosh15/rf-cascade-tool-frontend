@@ -1,17 +1,17 @@
 export interface Project {
-  id: number
-  name: string;
-  description?: string;
+  id: Number;
+  name: String;
+  description?: String;
   created_at: Date;
   modified_at: Date;
 }
 
 export interface ProjectCreate {
-  name: string;
-  description?: string;
+  name: String;
+  description?: String;
 }
 
 export interface ProjectUpdate {
-  name?: string;
-  description?: string;
+  name?: String;
+  description?: String;
 }
