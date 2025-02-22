@@ -1,6 +1,23 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M261.126 140.65L164.624 307.732L256.001 466L377.028 256.5L498.001 47H315.192L261.126 140.65Z" fill="#1697F6"/>
-<path d="M135.027 256.5L141.365 267.518L231.64 111.178L268.731 47H256H14L135.027 256.5Z" fill="#AEDDFF"/>
-<path d="M315.191 47C360.935 197.446 256 466 256 466L164.624 307.732L315.191 47Z" fill="#1867C0"/>
-<path d="M268.731 47C76.0026 47 141.366 267.518 141.366 267.518L268.731 47Z" fill="#7BC6FF"/>
+<svg width="200" height="300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Define the gradient with the specified colors -->
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#f6d746;stop-opacity:1" />
+            <stop offset="33%" style="stop-color:#e55c30;stop-opacity:1" />
+            <stop offset="66%" style="stop-color:#84206b;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#140b34;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- First pill shape with a 1px border, centered -->
+    <path d="M 25,50 a 20,20 0 0 1 40,0 v 160 a 20,20 0 0 1 -40,0 v -160" fill="url(#grad1)" stroke="#595959"
+        stroke-width="1" />
+
+    <!-- Second pill shape with a 1px border, staggered lower, centered -->
+    <path d="M 80,80 a 20,20 0 0 1 40,0 v 160 a 20,20 0 0 1 -40,0 v -160" fill="url(#grad1)" stroke="#595959"
+        stroke-width="1" />
+
+    <!-- Third pill shape with a 1px border, staggered even lower, centered -->
+    <path d="M 135,110 a 20,20 0 0 1 40,0 v 160 a 20,20 0 0 1 -40,0 v -160" fill="url(#grad1)" stroke="#595959"
+        stroke-width="1" />
 </svg>

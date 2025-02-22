@@ -5,6 +5,7 @@
                 <v-col cols="12">
                     <v-card class="py-4" color="surface-variant" :style="{ backgroundColor: 'rgba(var(--v-theme-primary), 0.06)' }"
                         rounded="lg" variant="text">
+                        <GoBack class="ml-4"/>
                         <CreateProject />
                     </v-card>
                 </v-col>
@@ -19,6 +20,6 @@
 
 <style>
     .surface-variant {
-        backgroundColor: 'rgba(var(--v-theme-primary), 0.06)'
+        background-color: 'rgba(var(--v-theme-primary), 0.06)';
     }
 </style>
