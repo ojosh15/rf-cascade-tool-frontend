@@ -8,7 +8,7 @@ class ComponentService {
     }
 
     // Get all components
-    async getProjects(): Promise<Component[]> {
+    async getComponents(): Promise<Component[]> {
         const response = await fetch(this.apiUrl, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },

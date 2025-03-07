@@ -10,6 +10,7 @@ declare module 'vue' {
     ComponentList: typeof import('./src/components/ComponentList.vue')['default']
     CreateProject: typeof import('./src/components/CreateProject.vue')['default']
     GoBack: typeof import('./src/components/GoBack.vue')['default']
+    PlotComponent: typeof import('./src/components/PlotComponent.vue')['default']
     ProjectList: typeof import('./src/components/ProjectList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
