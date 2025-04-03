@@ -1,4 +1,4 @@
-import { Component } from "@/models/component";
+import { Component, ComponentData } from "@/models/component";
 
 class ComponentService {
     private apiUrl: string;
@@ -14,7 +14,19 @@ class ComponentService {
             headers: { 'Content-Type': 'application/json' },
         });
         if (!response.ok) {
-            throw new Error('Failed to get projects');
+            throw new Error('Failed to get components');
+        }
+        return response.json();
+    }
+
+    // Get component data
+    async getComponentData(component_id: number): Promise<ComponentData> {
+        const response = await fetch(`${this.apiUrl}/${component_id}/data`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (!response.ok) {
+            throw new Error('Failed to get component data');
         }
         return response.json();
     }

@@ -1,34 +1,33 @@
 <template>
-    <v-row class="fill-height" justify="center">
-        <v-col class="fill-height">
-            <v-data-table class="fill-height elevation-1" height="100%" :headers="headers" :items="components">
-                <template v-slot:item.index="{ index }">
-                    {{ index + 1 }}
-                </template>
-                <template v-slot:item.modified_at="{ item }">
-                    {{ formatDate(item.modified_at) }}
-                </template>
-                <template v-slot:item="{ item }">
-                    <tr
-                        @click="selectRow(item)"
-                        :class="{ 'selected-row': selected === item }"
-                        style="cursor: pointer"
-                    >
-                    <td>{{ getRowIndex(item) }}</td>
-                    <td>{{ item.model }}</td>
-                    <td>{{ item.manufacturer }}</td>
-                    <td>{{ item.serial_no }}</td>
-                    <td>{{ item.type["type"] }}</td>
-                    <td>{{ item.start_freq/1e6 }}</td>
-                    <td>{{ item.stop_freq/1e6 }}</td>
-                    <td>{{ item.is_active }}</td>
-                    <td>{{ item.is_variable }}</td>
-                    <td>{{ formatDate(item.modified_at) }}</td>
-                    </tr>
-                </template>
-            </v-data-table>
-        </v-col>
-    </v-row>
+    <v-card class="pa-4 fill-height d-flex flex-column">
+        <v-card-title>Component Database</v-card-title>
+        <v-data-table class="flex-grow-1" :headers="headers" :items="components">
+            <template v-slot:item.index="{ index }">
+                {{ index + 1 }}
+            </template>
+            <template v-slot:item.modified_at="{ item }">
+                {{ formatDate(item.modified_at) }}
+            </template>
+            <template v-slot:item="{ item }">
+                <tr
+                    @click="selectRow(item)"
+                    :class="{ 'selected-row': selected === item }"
+                    style="cursor: pointer"
+                >
+                <td>{{ getRowIndex(item) }}</td>
+                <td>{{ item.model }}</td>
+                <td>{{ item.manufacturer }}</td>
+                <td>{{ item.serial_no }}</td>
+                <td>{{ item.type["type"] }}</td>
+                <td>{{ item.start_freq/1e6 }}</td>
+                <td>{{ item.stop_freq/1e6 }}</td>
+                <td>{{ item.is_active }}</td>
+                <td>{{ item.is_variable }}</td>
+                <td>{{ formatDate(item.modified_at) }}</td>
+                </tr>
+            </template>
+        </v-data-table>
+    </v-card>
 </template>
 
 <script lang="ts">
