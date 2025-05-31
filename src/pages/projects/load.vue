@@ -1,11 +1,11 @@
 <template>
     <v-container class="fill-height">
-        <v-responsive class="align-centerfill-height mx-auto" max-width="900">
+        <v-responsive class="align-centerfill-height mx-auto pa-8" max-width="900">
             <v-row justify="center">
                 <v-col cols="12">
-                    <v-card class="py-4" color="surface-variant" :style="{ backgroundColor: 'rgba(var(--v-theme-primary), 0.06)' }"
-                        rounded="lg" variant="text">
-                        <GoBack class="ml-4"/>
+                    <v-card class="pa-4 d-flex ga-4"
+                        rounded="lg" elevation="4">
+                        <GoBack />
                         <ProjectList />
                     </v-card>
                 </v-col>
@@ -15,11 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-//
-</script>
+import { definePage } from 'vue-router/auto'
 
-<style>
-    .surface-variant {
-        background-color: 'rgba(var(--v-theme-primary), 0.06)';
-    }
-</style>
+definePage({
+    meta: {
+        requiresAuth: true,
+    },
+})
+</script>

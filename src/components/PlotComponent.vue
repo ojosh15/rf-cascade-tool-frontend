@@ -1,6 +1,7 @@
 <template>
-    <v-card class="pa-4 fill-height d-flex flex-column">
+    <v-card class="pa-4 fill-height d-flex flex-column" elevation="4">
         <v-card-title>Data Plot</v-card-title>
+        <v-divider></v-divider>
         <v-card-text v-if="selectedComponent" class="flex-grow-1">
             <v-row style="height: 100%; width: 100%">
                 <v-col cols="12">

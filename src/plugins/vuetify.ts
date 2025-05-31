@@ -15,5 +15,14 @@ import { createVuetify } from 'vuetify'
 export default createVuetify({
   theme: {
     defaultTheme: 'dark',
+    themes: {
+      light: {
+        dark: false,
+        colors: {
+          background: '#FAFAFA', // 👈 change background color here
+          // ... other color overrides
+        },
+      },
+    },
   },
 })

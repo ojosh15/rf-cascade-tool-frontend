@@ -31,7 +31,8 @@
 
                 <v-row justify="center">
                     <v-col cols="6">
-                        <v-btn :disabled="!formValid || loading" type="submit" block>
+                        <v-btn :disabled="!formValid || loading" type="submit" block 
+                        variant="elevated" color="primary" size="large">
                             <v-progress-circular
                             v-if="loading"
                             indeterminate
@@ -50,7 +51,7 @@
 <script lang="ts">
     import { defineComponent, ref } from 'vue';
     import ProjectService from "@/services/project";
-    import type {Project, ProjectCreate} from "@/models/project";
+    import type { Project, ProjectCreate } from "@/models/project";
 
     export default defineComponent({
         setup() {

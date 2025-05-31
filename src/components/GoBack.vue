@@ -4,12 +4,12 @@
     </span>
 </template>
 
-<script>
-export default {
-    methods: {
-        goBack() {
-            return this.$router.go(-1);
-        }
-    }
+<script lang="ts" setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
+const goBack = () => {
+    router.go(-1);
 };
 </script>

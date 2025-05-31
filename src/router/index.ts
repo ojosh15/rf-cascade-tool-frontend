@@ -5,34 +5,58 @@
  */
 
 // Composables
-import { createRouter, createWebHistory } from 'vue-router/auto'
-import { routes } from 'vue-router/auto-routes'
+import { useUserStore } from "@/stores/user";
+import { createRouter, createWebHistory } from "vue-router/auto";
+import { routes } from "vue-router/auto-routes";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    ...routes,
-    { path: '/:pathMatch(.*)*', component: () => import('@/pages/404.vue') },
-  ],
-})
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+        ...routes,
+        {
+            path: "/:pathMatch(.*)*",
+            component: () => import("@/pages/404.vue"),
+        },
+    ],
+});
+
+// Auth guard
+router.beforeEach(async (to, from, next) => {
+    const userStore = useUserStore();
+
+	console.log(to.path, to.meta.requiresAuth, userStore.isAuthenticated)
+    if (to.meta.requiresAuth && !userStore.isAuthenticated) {
+        next({
+			path: '/login',
+			query: { redirect: to.fullPath }
+		});
+    } else {
+        next();
+    }
+});
 
 // Workaround for https://github.com/vitejs/vite/issues/11804
 router.onError((err, to) => {
-  if (err?.message?.includes?.('Failed to fetch dynamically imported module')) {
-    if (!localStorage.getItem('vuetify:dynamic-reload')) {
-      console.log('Reloading page to fix dynamic import error')
-      localStorage.setItem('vuetify:dynamic-reload', 'true')
-      location.assign(to.fullPath)
+    if (
+        err?.message?.includes?.("Failed to fetch dynamically imported module")
+    ) {
+        if (!localStorage.getItem("vuetify:dynamic-reload")) {
+            console.log("Reloading page to fix dynamic import error");
+            localStorage.setItem("vuetify:dynamic-reload", "true");
+            location.assign(to.fullPath);
+        } else {
+            console.error(
+                "Dynamic import error, reloading page did not fix it",
+                err
+            );
+        }
     } else {
-      console.error('Dynamic import error, reloading page did not fix it', err)
+        console.error(err);
     }
-  } else {
-    console.error(err)
-  }
-})
+});
 
 router.isReady().then(() => {
-  localStorage.removeItem('vuetify:dynamic-reload')
-})
+    localStorage.removeItem("vuetify:dynamic-reload");
+});
 
-export default router
+export default router;

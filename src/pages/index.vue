@@ -1,6 +1,6 @@
 <template>
     <v-container class="fill-height">
-        <v-responsive class="align-centerfill-height mx-auto" max-width="900">
+        <v-responsive class="align-centerfill-height mx-auto pa-8" max-width="900">
             <v-img class="mb-4" height="150" src="@/assets/logo.svg" />
 
             <div class="text-center pb-4">
@@ -8,49 +8,47 @@
 
                 <h1 class="text-h2 font-weight-bold">RF Cascade Tool</h1>
             </div>
-            
+
             <v-row>
                 <v-col>
                     <v-row>
                         <v-col>
-                            <v-card hover class="py-4" color="surface-variant"
-                                href="/projects/load"
-                                prepend-icon="mdi-tray-arrow-up" rounded="lg"
-                                subtitle="Select an existing project file." title="Load Project"
-                                variant="text">
-                                <v-overlay opacity=".06" scrim="primary" contained model-value persistent />
+                            <v-card hover class="py-4" to="/projects/load" prepend-icon="mdi-tray-arrow-up"
+                                rounded="lg" subtitle="Select an existing project file." title="Load Project"
+                                elevation="4">
                             </v-card>
                         </v-col>
                     </v-row>
 
                     <v-row>
                         <v-col>
-                            <v-card hover class="py-4" color="surface-variant"
-                                href="/projects/new" prepend-icon="mdi-pencil-plus"
-                                rounded="lg" subtitle="Start with an empty project file."
-                                title="Create New Project" variant="text">
-                                <v-overlay opacity=".06" scrim="primary" contained model-value persistent />
+                            <v-card hover class="py-4" to="/projects/new" prepend-icon="mdi-pencil-plus" rounded="lg"
+                                subtitle="Start with an empty project file." title="Create New Project"
+                                elevation="4">
                             </v-card>
                         </v-col>
                     </v-row>
 
                     <v-row>
                         <v-col>
-                            <v-card hover class="py-4" color="surface-variant"
-                                href="/components"
-                                prepend-icon="mdi-database-edit-outline" rounded="lg"
-                                subtitle="Add, edit, and view component models" title="Launch Component Designer"
-                                variant="text">
-                                <v-overlay opacity=".06" scrim="primary" contained model-value persistent />
+                            <v-card hover class="py-4" to="/components" prepend-icon="mdi-database-edit-outline"
+                                rounded="lg" subtitle="Add, edit, and view component models"
+                                title="Launch Component Designer" elevation="4">
                             </v-card>
                         </v-col>
                     </v-row>
                 </v-col>
-            </v-row>                
+            </v-row>
         </v-responsive>
     </v-container>
 </template>
 
-<script lang="ts" setup>
-  //
+<script setup lang="ts">
+import { definePage } from 'vue-router/auto'
+
+definePage({
+    meta: {
+        requiresAuth: true,
+    },
+})
 </script>

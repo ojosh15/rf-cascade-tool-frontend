@@ -12,9 +12,15 @@ import App from './App.vue'
 
 // Composables
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import { useUserStore } from './stores/user'
 
 const app = createApp(App)
 
 registerPlugins(app)
+app.use(createPinia())
+
+const userStore = useUserStore()
+await userStore.fetchUser()
 
 app.mount('#app')

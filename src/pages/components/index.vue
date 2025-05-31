@@ -16,6 +16,13 @@ import { ref } from "vue";
 import ComponentList from "@/components/ComponentList.vue";
 import PlotComponent from "@/components/PlotComponent.vue";
 import type { Component } from "@/models/component";
+import { definePage } from 'vue-router/auto'
+
+definePage({
+    meta: {
+        requiresAuth: true,
+    },
+})
 
 // Store selected row in the parent component
 const selectedComponent = ref<Component | null>(null);
