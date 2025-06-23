@@ -50,7 +50,7 @@
       </v-app-bar>
 
       <!-- Navigation Drawer -->
-      <v-navigation-drawer v-model="drawer" location="start" temporary>
+      <v-navigation-drawer v-model="drawer" location="start" temporary :scrim="theme.global.current.value.dark ? 'rgba(255,255,255)' : undefined">
         <v-list>
           <v-list-item v-for="item in items" :key="item.title" :to="item.to" link @click="drawer = false"
             :disabled="item.requiresAuth && !userStore.isAuthenticated"

@@ -19,7 +19,7 @@ export default createVuetify({
       light: {
         dark: false,
         colors: {
-          background: '#FAFAFA', // 👈 change background color here
+          background: '#F3F4F6', // 👈 change background color here
           // ... other color overrides
         },
       },
